@@ -2,7 +2,7 @@
 
 - Idea of the Website
   
-    Barzana Clinic is a Website where an user can make an appointment with a doctor of his choice. In order to achieve this goal, the user must create a profile with his personal data and, if he has any, clinical details, such as diseases, operations and so forth. After doing so, the user can establish a date at a certain time with a doctor of x specialty. 
+    Barzana Clinic is a Website where an user can make an appointment with a doctor of his choice. In order to achieve this goal, the user must create a profile with his personal data and, if he has any, clinical details, such as diseases, operations and so forth. After doing so, the user can establish a date at a certain time with a doctor of x specialty. The website will be mainly focused around large displays (laptops and tablets).
 
 - Target audience  
     
@@ -29,6 +29,12 @@
   
   </ul>
 
+- Inspired by different websites such as:
+    <ul>
+    <li>https://www.haloclinic.com.ar/ </li>
+    <li>https://www.marshfieldclinic.org/</li>
+  </ul>
+    
 - Link to the figma project: 
   
     https://www.figma.com/files/project/76498417

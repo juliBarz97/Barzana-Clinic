@@ -1,0 +1,161 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
+html{
+/*    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  */
+  
+  background-color:white
+  ;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background: #003e51;
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    z-index: 3;
+    justify-content: space-between;
+}
+
+#navbar{
+    background: #003e51 ;
+    color: white;
+    display: flex;
+    align-self: center;
+    justify-content: space-evenly;
+    margin-right: 50px;
+    font-size: 1.3em;
+    width: 55%;
+}
+#picture{
+    margin-left: 10%;
+    height: 100px;
+    width: 150px;
+}
+
+#doctors{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.infoAd{
+    justify-content: center;
+    display: flex;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 30px
+}
+
+.carta{
+    width: 250px;
+    height: 250px;
+    margin-bottom: 3em;
+    background-color: #333;
+    border-radius:10px;
+    outline: 1px solid rgba(255, 255, 255, 5);
+    outline-offset: -8px;
+    box-shadow: 3px 3px 10px rgba(0, 0,0 ,1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cartaImg{
+    position:absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .6;
+    transition: transform 0.75s;
+}
+
+.carta:hover .cartaImg{
+    transform: scale(1.15);
+}
+
+.cartaText{
+    position:absolute;
+    left: 15px;
+    bottom: 15px;
+    font-size: 20px;
+    text-shadow: 0 0 2px;
+    color: white;
+}
+
+#clinicOptions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+#cuerpo{
+    background: white;
+}
+
+#info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-items: center;
+    margin: 5% 10% 5% 10%;
+}
+
+
+.infoTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoTitle:hover {
+    filter: drop-shadow(6px 6px 3px lightslategray);
+    color:rgb(168, 49, 49);
+    transition: 0.4s ease-in-out 0.2s; 
+    
+}
+
+
+.blackText{
+    color:black !important;
+    filter: drop-shadow(0 0 0 white) !important;
+}
+
+footer{
+    background: lightslategray;
+    color: white;
+    display: flex;
+   
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+    align-items: baseline;
+    justify-content: space-evenly;
+}
+
+.foot3{
+    font-size: 1.25em;
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 50px 50px 50px;
+    padding-top: 200px;
+    flex-wrap: wrap;
+}
+
+#Register{
+    padding-top: 150px;
+    margin: 0 5% 0 5%
+}
+
+.hovers:hover{
+    background-color:red;
+    transition: 1000ms;
+
+}
