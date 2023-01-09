@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+ 
+<%- include ('./partials/head') %>
+ 
+  <body id="cuerpo">
+
+  <%- include ('./partials/header') %>
+<main>
+      
+        <form class="row g-3" id="Register" >
+           <h2> Register yourself!</h2>
+          <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">First name</label>
+            <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault02" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefaultUsername" class="form-label">Username</label>
+            <div class="input-group">
+              <span class="input-group-text" id="inputGroupPrepend2">@</span>
+              <input type="email" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label"> Password</label>
+            <input type="password" class="form-control" id="validationDefault03" value="" required>
+            <div id="emailHelp" class="form-text">Your Password must have: 8-20 characters and at least 1 number.</div>
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault04" class="form-label"> Confirm Your Password </label>
+            <input type="password" class="form-control" id="validationDefault04" value="" required>
+          </div>         
+          <div class="col-md-6">
+            <label for="validationDefault05" class="form-label"> Date Birth</label>
+            <input type="date" class="form-control" id="validationDefault05" required>
+          </div>
+          <div class="col-md-3">
+            <label for="validationDefault06" class="form-label">State</label>
+            <select class="form-select" id="validationDefault06" required>
+              <option selected disabled value="">Choose...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="validationDefault07" class="form-label">City</label>
+            <input type="text" class="form-control" id="validationDefault07" required>
+          </div>
+          <div class="col-md-3">
+            <label for="validationDefault08" class="form-label">Phone Number</label>
+            <input type="number" class="form-control" id="validationDefault0" required>
+          </div>
+          <div class="col-md-3">
+            <label for="validationDefault09" class="form-label">Profile Picture</label>
+            <input type="image" class="form-control" id="validationDefault09" required>
+          </div>
+          <div class="col-md-3">
+          <br>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit" style="background-color: #003e51;">Submit form</button>
+          </div>
+        </form>
+
+</main>
+<%- include ('./partials/footer') %>
+</body>
+
+</html>

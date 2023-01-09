@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+    <%- include ('./partials/head') %>
+<body id="cuerpo">
+    <%- include ('./partials/header') %>
+
+<main id="mainProfile">
+
+    <h2 class="personalText"> My profile</h2>
+
+    <section id="profileSec">
+        <div id="profileDP">
+          <img src="/public/img/IMG-2000.jpg" id="profilePic" >  
+        </div>
+    
+        <div id="profileData">
+          <table style="height: 100%">
+            <tr>
+              <td> Name </td>
+              <td> Julian Barzana</td>
+            </tr>
+            <tr>
+              <td> Date birth: </td>
+              <td> 99/99/9999 </td>
+            </tr>
+            <tr>
+              <td> Cellphone number:</td>
+              <td> 00 0000 0000 </td>
+            </tr>
+            <tr>
+              <td> Sex:</td>
+              <td> Male </td>
+            </tr>
+            <tr>
+              <td> Health Insurance </td>
+              <td> Basic </td>
+            </tr>
+            <tr>
+              <td> City: </td>
+              <td> New Gerd </td>
+            </tr>
+            <tr>
+              <td> Mail: </td>
+              <td> Julian@gmail.gnid </td>
+            </tr>
+          </table>
+        </div>
+    </section>
+
+<h2 class="personalText"> Appointments </h2>
+<div id="appointmentsData">
+<table>
+  <tr>
+    <th> Proffesional</th>
+    <th> Area of Expertise</th>
+    <th> Date</th>
+    <th> Hour</th>
+    <th> Cancel </th>
+  </tr>
+  <tr>
+    <td> Julian Barzana </td>
+    <td> Dermatologist </td>
+    <td> 24/01/2023 </td>
+    <td> 15:00 </td>
+    <td> <button type="button" class="btn-close" aria-label="Close"></button></td>
+  </tr>
+  <tr>
+    <td> Julian Barzana </td>
+    <td> Dermatologist </td>
+    <td> 24/01/2023 </td>
+    <td>  15:00</td>
+    <td> <button type="button" class="btn-close" aria-label="Close"></button></td>
+  </tr>
+  <tr>
+    <td> Julian Barzana </td>
+    <td> Dermatologist </td>
+    <td> 04/01/2023</td>
+    <td> 15:00</td>
+    <td> <button type="button" class="btn-close" aria-label="Close"></button></td>
+  </tr>
+</table>
+</div>
+</main>
+
+    <%- include ('./partials/footer') %>
+
+</body>
+<style>
+   
+    </style>
+</html>

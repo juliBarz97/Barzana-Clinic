@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <%- include ('./partials/head') %>
+<body id="cuerpo">
+
+  <%- include ('./partials/header') %>
+  <main style="padding-top: 100px; margin: 0% 7% 0% 7%;">
+    
+    <h2 class="personalText"> My profile</h2>
+
+    <section id="profileSec">
+        <div id="profileDP">
+          <img src="/public/img/IMG-2000.jpg" id="profilePic" >  
+        </div>
+    
+        <div id="profileData">
+          <table style="height: 100%">
+            <tr>
+              <td> Name </td>
+              <td> Julian Barzana</td>
+            </tr>
+            <tr>
+              <td> Date birth: </td>
+              <td> 99/99/9999 </td>
+            </tr>
+            <tr>
+              <td> Cellphone number:</td>
+              <td> 00 0000 0000 </td>
+            </tr>
+            <tr>
+              <td> Sex:</td>
+              <td> Male </td>
+            </tr>
+            <tr>
+                <td> Days Availiable </td>
+                <td> Thursday, Friday </td>
+            </tr>
+            <tr>
+              <td> Area of Expertise </td>
+              <td> Dermathologist </td>
+            </tr>
+            <tr>
+              <td> City: </td>
+              <td> New Gerd </td>
+            </tr>
+            <tr>
+              <td> Mail: </td>
+              <td> Julian@gmail.gnid </td>
+            </tr>
+          </table>
+        </div>
+    </section>
+</section>
+<h2 class="personalText" style="text-align: center; margin: 5% 0 5% 0"> Take Turn </h2>
+<form style="border: solid; margin-top: 5%;">
+  <div class="col-md-3">
+    <label for="validationDefault06" class="form-label">Day</label>
+    <select class="form-select" id="validationDefault06" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <label for="validationDefault06" class="form-label">Month</label>
+    <select class="form-select" id="validationDefault06" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <label for="validationDefault06" class="form-label">Year</label>
+    <select class="form-select" id="validationDefault06" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <label for="validationDefault06" class="form-label">Hour</label>
+    <select class="form-select" id="validationDefault06" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary" style="background-color: #003e51;"> Make Appointment </button>
+</form>
+</main>
+
+  <%- include ('./partials/footer') %>
+
+</body>
+</html>
