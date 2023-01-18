@@ -1,10 +1,26 @@
 const express = require('express')
 const app= express()
 const path = require('path')
-
+const methodOverride = require('method-override');
+const multer = require('multer')
 
 const mainRoute = require('./routes/mainRoute');
 const userRoute = require('./routes/userRoute');
+
+const session = require('express-session');
+const cookies = require('cookie-parser');
+
+app.use(session({
+    secret: 'Nombre del sitio',
+    resave: false,
+    saveUninitialized: true,
+}));
+
+app.use(cookies())
+
+app.use(methodOverride('_method'));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.use('/', mainRoute);
 app.use('/users', userRoute);

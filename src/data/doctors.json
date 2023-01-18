@@ -1,0 +1,189 @@
+[
+ {
+  "id": 0,
+  "name": "Mark Trend",
+  "expertise": "Dermathologist ",
+  "birthdate": "10/10/1999",
+  "city": "New Gerd",
+  "email": "GEge@gmail.com"
+ },
+ {
+  "id": 1
+ },
+ {
+  "id": 2
+ },
+ {
+  "id": 3
+ },
+ {
+  "id": 4,
+  "name": "Mark",
+  "expertise": "Dermathologist",
+  "birthdate": "1222-12-12",
+  "city": "awdawd",
+  "email": "adwad@gmasd.com"
+ },
+ {
+  "id": 5,
+  "name": "Mark Onechan",
+  "expertise": "Wiafugologist",
+  "birthdate": "1221-11-19",
+  "city": "Waifu city",
+  "email": "waifuchan@anime.com"
+ },
+ {
+  "id": 6,
+  "name": "Mark Twenty",
+  "expertise": "Dermathologist",
+  "birthdate": "2005-06-03",
+  "city": "Dis village",
+  "email": "dsd@gmail.com",
+  "phone": "123123123123",
+  "image": "thumbnail_IMG_5477.jpg"
+ },
+ {
+  "id": 7,
+  "name": "Julian Barzana",
+  "expertise": "Dermathologist",
+  "birthdate": "0012-12-12",
+  "city": "dwqdwq",
+  "email": "juli7@gmail.com",
+  "phone": "1212121212",
+  "image": "thumbnail_IMG_5477.jpg"
+ },
+ {
+  "id": 8,
+  "name": "Julian Pablo Barzana",
+  "expertise": "Dermathologist",
+  "birthdate": "2023-01-21",
+  "city": "asdasd",
+  "email": "ddq@gmail.com",
+  "phone": "1231",
+  "days": [
+   null
+  ],
+  "image": "thumbnail_IMG_5477.jpg"
+ },
+ {
+  "id": 9,
+  "name": "Mark Superman",
+  "expertise": "Dermathologist",
+  "birthdate": "2023-01-18",
+  "city": "Villa Ortuzar",
+  "email": "julianmod@hotmail.com",
+  "phone": "01136917222",
+  "image": "p1m1br7rl8r51.jpg"
+ },
+ {
+  "id": 10,
+  "name": "Julian Pablo Barzana",
+  "expertise": "Dermathologist",
+  "birthdate": "2023-01-11",
+  "city": "Villa Ortuzar",
+  "email": "julianmod@hotmail.com",
+  "phone": "01136917222",
+  "days": [
+   "monday",
+   null,
+   "wednesday",
+   null,
+   null
+  ],
+  "image": "thumbnail_IMG_5477.jpg"
+ },
+ {
+  "id": 11,
+  "name": "Mark Superman",
+  "expertise": "Dermathologist",
+  "birthdate": "2007-06-22",
+  "city": "Buenos Aires",
+  "email": "123@gmail.com",
+  "phone": "01136917222",
+  "days": [
+   "monday",
+   null,
+   "wednesday",
+   null,
+   null
+  ],
+  "image": "thumbnail_IMG_5477.jpg"
+ },
+ {
+  "id": 12,
+  "name": "Mark Superman",
+  "expertise": "qweqweasdawe",
+  "birthdate": "2007-06-22",
+  "city": "Buenos Aires",
+  "email": "123@gmail.com",
+  "phone": "01136917222",
+  "days": [
+   "monday",
+   null,
+   "wednesday",
+   null,
+   "friday"
+  ],
+  "image": "thumbnail_IMG_5477.jpg"
+ },
+ {
+  "id": 13,
+  "name": "Mark Superman",
+  "expertise": "qweqweasdawe",
+  "birthdate": "2007-06-22",
+  "city": "Buenos Aires",
+  "email": "123@gmail.com",
+  "phone": "01136917222",
+  "days": [
+   null,
+   "tuesday",
+   null,
+   null,
+   "friday"
+  ],
+  "image": "thumbnail_IMG_5477.jpg"
+ },
+ {
+  "id": 14,
+  "name": "Julian Pablo Barzana",
+  "expertise": "Dermathologist",
+  "birthdate": "2023-01-13",
+  "city": "Villa Ortuzar",
+  "email": "julianmod@hotmail.com",
+  "phone": "01136917222",
+  "days": [
+   "monday",
+   null,
+   "wednesday",
+   null,
+   "friday"
+  ],
+  "image": "thumbnail_IMG_5477.jpg"
+ },
+ {
+  "id": 15,
+  "name": "Julian Pablo Barzana",
+  "expertise": "Dermathologist",
+  "birthdate": "2022-12-29",
+  "city": "Villa Ortuzar",
+  "email": "julianmod@hotmail.com",
+  "phone": "01136917222",
+  "days": [
+   "monday"
+  ],
+  "image": "Capture.PNG"
+ },
+ {
+  "id": 16,
+  "name": "Julian Pablo Barzana",
+  "expertise": "Dermathologist",
+  "birthdate": "1212-12-12",
+  "city": "Villa Ortuzar",
+  "email": "julianmod@hotmail.com",
+  "phone": "01136917222",
+  "days": [
+   "monday",
+   "wednesday"
+  ]
+ }
+]

@@ -52,34 +52,48 @@
     </section>
 </section>
 <h2 class="personalText" style="text-align: center; margin: 5% 0 5% 0"> Take Turn </h2>
-<form style="border: solid; margin-top: 5%;">
+<form style="border: solid; margin-top: 5%;" method="post" action="/newTurn">
   <div class="col-md-3">
-    <label for="validationDefault06" class="form-label">Day</label>
-    <select class="form-select" id="validationDefault06" required>
-      <option selected disabled value="">Choose...</option>
-      <option>...</option>
-    </select>
-    <label for="validationDefault06" class="form-label">Month</label>
-    <select class="form-select" id="validationDefault06" required>
-      <option selected disabled value="">Choose...</option>
-      <option>...</option>
-    </select>
-    <label for="validationDefault06" class="form-label">Year</label>
-    <select class="form-select" id="validationDefault06" required>
-      <option selected disabled value="">Choose...</option>
-      <option>...</option>
-    </select>
+    <div class="col-md-12">
+      <label for="datepicker" class="form-label"> Date </label>
+      <input type="date" name="datepicker" class="form-control" placeholder="Click to choose a date" id="datepicker" required>
+    </div>
+
     <label for="validationDefault06" class="form-label">Hour</label>
-    <select class="form-select" id="validationDefault06" required>
+    <select class="form-select" id="validationDefault06" name="hour" required>
       <option selected disabled value="">Choose...</option>
-      <option>...</option>
+      <option> 16:00 </option>
+      <option> 17:00 </option>
+      <option> 18:00 </option>
+      <option> 19:00 </option>
+      <option> 20:00 </option>
     </select>
-  </div>
+  </div>  
   <button type="submit" class="btn btn-primary" style="background-color: #003e51;"> Make Appointment </button>
+  <button type="reset" class="btn btn-danger" style="background-color: #690000;"> Clean </button>
+
 </form>
+
+
+
 </main>
 
   <%- include ('./partials/footer') %>
+<script>
+  
 
+  flatpickr('#datepicker', 
+  {
+      
+      dateFormat: "F j, Y",
+      minDate: "today",
+      disable: [
+          function(date) {
+              return (date.getDay() === 0 || date.getDay() === 6 || date.getDay() === 2);
+          }
+      ]
+  })
+
+</script>
 </body>
 </html>

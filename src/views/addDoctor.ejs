@@ -6,63 +6,61 @@
   <%- include ('./partials/header') %>
   <main>
       
-    <form class="row g-3" id="Register" >
+    <form class="row g-3" id="Register" action="/createDoctor" method="post" enctype="multipart/form-data">
        <h2> Add a new Professional!</h2>
       <div class="col-md-4">
-        <label for="validationDefault01" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" name="name" class="form-control" id="name" value="Mark" required>
       </div>
       <div class="col-md-4">
-        <label for="validationDefault02" class="form-label"> Area of Expertise </label>
-        <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
+        <label for="expertise" class="form-label"> Area of Expertise </label>
+        <input type="text" name="expertise" class="form-control" id="expertise" value="Dermathologist" required>
       </div>
       <div class="col-md-3">
-        <label for="validationDefault07" class="form-label"> Email </label>
-        <input type="text" class="form-control" id="validationDefault07" required>
+        <label for="email" class="form-label"> Email </label>
+        <input type="text" name="email" class="form-control" id="email" required>
       </div>
       <div class="col-md-6">
-        <label for="validationDefault05" class="form-label"> Birthdate </label>
-        <input type="date" class="form-control" id="validationDefault05" required>
+        <label for="birthdate" class="form-label"> Birthdate </label>
+        <input type="date" name="birthdate" class="form-control" id="birthdate" required>
       </div>
         <div class="col-md-3">
-        <label for="validationDefault07" class="form-label">City</label>
-        <input type="text" class="form-control" id="validationDefault07" required>
+        <label for="city" class="form-label">City</label>
+        <input type="text" name="city" class="form-control" id="city" required>
       </div> 
       
       <div class="col-md-3">
-        <label for="validationDefault06" class="form-label"> Days Available: </label>
+      <label for="validationDefault06" class="form-label"> Days Available: </label>
         <br>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1"> Monday</label>
+            <input class="form-check-input" type="checkbox" name="monday" id="monday" value="1">
+            <label class="form-check-label" for="monday"> Monday</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2"> Tuesday </label>
+            <input class="form-check-input" type="checkbox" id="tuesday" name="tuesday" value="2">
+            <label class="form-check-label" for="Tuesday"> Tuesday </label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-            <label class="form-check-label" for="inlineCheckbox3"> Wednesday</label>
+            <input class="form-check-input" type="checkbox" id="wednesday" name="wednesday"value="3">
+            <label class="form-check-label" for="wednesday"> Wednesday</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-            <label class="form-check-label" for="inlineCheckbox3"> Thursday</label>
+            <input class="form-check-input" type="checkbox" id="thursday" name="thursday" value="4">
+            <label class="form-check-label" for="thursday"> Thursday</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-            <label class="form-check-label" for="inlineCheckbox3"> Friday </label>
+            <input class="form-check-input" type="checkbox" name="friday" id="friday" value="5">
+            <label class="form-check-label" for="friday"> Friday </label>
           </div>
-      </div>
-    
-    
-      
-      <div class="col-md-3">
-        <label for="validationDefault08" class="form-label">Phone Number</label>
-        <input type="number" class="form-control" id="validationDefault0" required>
+        
       </div>
       <div class="col-md-3">
-        <label for="validationDefault09" class="form-label">Profile Picture</label>
-        <input type="image" class="form-control" id="validationDefault09" required>
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="number" name="phone" class="form-control" id="phone" required>
+      </div>
+      <div class="col-md-3">
+        <label for="avatar" class="form-label">Profile Picture</label>
+        <input type="file" name="avatar" class="form-control" id="avatar" required>
       </div>
       <div class="col-md-3">
       <br>
