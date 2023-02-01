@@ -6,17 +6,29 @@
 
 <main>
     
-    <form id="login">
+    <form id="login" method="POST" action="/users/validLogin">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+          <% if (locals.errors && errors.email) { %>
+          <div class="text-danger">
+            <%= errors.email.msg %>
+          </div>
+          <% } else { %> 
+          <div id="emailHelp" class="form-text"> We'll never share your password and email with anyone else.</div>
+            <% } %>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>          
-          <input type="password" class="form-control" id="exampleInputPassword1" required> 
+          <label for="password" class="form-label">Password</label>          
+          <input type="password" class="form-control" id="password" name="password" required> 
         </div>
-        <button type="submit" class="btn btn-primary" style="background-color: #003e51;">Submit</button>
+      <!--  <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="remember" value="on" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1" >
+              Remember me!
+            </label>
+        </div>-->
+        <button type="submit" class="btn btn-primary" style="background-color: #003e51;"> Login </button>
         <br>
         <p> You don't have an account? <a href="/users/register" style="color:black !important;">Register Here!</a> </p>
     </form>

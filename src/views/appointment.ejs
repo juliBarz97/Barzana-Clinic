@@ -10,22 +10,22 @@
 
     <section id="profileSec">
         <div id="profileDP">
-          <img src="/public/img/IMG-2000.jpg" id="profilePic" >  
+          <img src="../../public/img/doctors/<%= d.image %>" id="profilePic" >  
         </div>
     
         <div id="profileData">
           <table style="height: 100%">
             <tr>
               <td> Name </td>
-              <td> Julian Barzana</td>
+              <td> <%= d.name %> </td>
             </tr>
             <tr>
               <td> Date birth: </td>
-              <td> 99/99/9999 </td>
+              <td> <%= d.birthdate %> </td>
             </tr>
             <tr>
               <td> Cellphone number:</td>
-              <td> 00 0000 0000 </td>
+              <td> <%= d.phone %> </td>
             </tr>
             <tr>
               <td> Sex:</td>
@@ -33,7 +33,17 @@
             </tr>
             <tr>
                 <td> Days Availiable </td>
-                <td> Thursday, Friday </td>
+                <% let days = [] %> 
+                <% let numbers = d.days %> 
+           
+                <%   for (let i = 0 ; i < numbers.length; i++){ %> 
+                  <%   if (numbers[i] == "1"){ days.push(" Monday") } %>
+                  <%   if (numbers[i] == "2"){ days.push(" Tuesday") } %>
+                  <%   if (numbers[i] == "3"){ days.push(" Wednesday") } %>
+                  <%   if (numbers[i] == "4"){ days.push(" Thursday") } %>
+                  <%   if (numbers[i] == "5"){ days.push(" Friday") } %>
+                <% } %>
+                <td id="daysAvailable"> <%= days + ' ' %> </td>
             </tr>
             <tr>
               <td> Area of Expertise </td>
@@ -41,24 +51,24 @@
             </tr>
             <tr>
               <td> City: </td>
-              <td> New Gerd </td>
+              <td> <%= d.city %> </td>
             </tr>
             <tr>
               <td> Mail: </td>
-              <td> Julian@gmail.gnid </td>
+              <td> <%= d.email %> </td>
             </tr>
           </table>
         </div>
     </section>
 </section>
 <h2 class="personalText" style="text-align: center; margin: 5% 0 5% 0"> Take Turn </h2>
-<form style="border: solid; margin-top: 5%;" method="post" action="/newTurn">
+<form style="margin-top: 5%;" method="post" action="/newTurn">
   <div class="col-md-3">
     <div class="col-md-12">
       <label for="datepicker" class="form-label"> Date </label>
       <input type="date" name="datepicker" class="form-control" placeholder="Click to choose a date" id="datepicker" required>
     </div>
-
+    <div class="col-md-12">
     <label for="validationDefault06" class="form-label">Hour</label>
     <select class="form-select" id="validationDefault06" name="hour" required>
       <option selected disabled value="">Choose...</option>
@@ -68,10 +78,14 @@
       <option> 19:00 </option>
       <option> 20:00 </option>
     </select>
-  </div>  
+    </div>
+  <% if (!locals.isLogged) { %>
+  <button type="submit" class="btn btn-primary" style="background-color: #003e51;" disabled> Make Appointment </button>
+  <% }else{ %>
   <button type="submit" class="btn btn-primary" style="background-color: #003e51;"> Make Appointment </button>
+  <% } %> 
   <button type="reset" class="btn btn-danger" style="background-color: #690000;"> Clean </button>
-
+  </div>  
 </form>
 
 
@@ -82,15 +96,29 @@
 <script>
   
 
+
+const daysAvailable = document.querySelector('#daysAvailable').innerText
+let days = daysAvailable.split(', ')
+let numbers = [] 
+
+for (let i = 0 ; i < days.length; i ++ ){ 
+                  if (days[i] == "Monday"){ numbers.push(1) } 
+                  if (days[i] == "Tuesday"){ numbers.push(2) }
+                  if (days[i] == "Wednesday"){ numbers.push(3) } 
+                  if (days[i] == "Thursday"){ numbers.push(4) } 
+                  if (days[i] == "Friday"){ numbers.push(5) } 
+      } 
+
+
+
   flatpickr('#datepicker', 
-  {
-      
+  {      
       dateFormat: "F j, Y",
       minDate: "today",
-      disable: [
-          function(date) {
-              return (date.getDay() === 0 || date.getDay() === 6 || date.getDay() === 2);
-          }
+      enable: [
+        function(date) {
+          return numbers.some((element) => date.getDay() == element);
+        }
       ]
   })
 

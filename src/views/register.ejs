@@ -12,45 +12,97 @@
            <h2> Register yourself!</h2>
           <div class="col-md-4">
             <label for="firstName" class="form-label">First name</label>
-            <input type="text" name="firstName" class="form-control" id="firstName" value="Mark" required>
+            <input type="text" name="firstName" class="form-control <%= locals.errors && errors.firstName ? 'is-invalid' : null %>"
+             id="firstName" value="Mark" required>
+            <% if (locals.errors && errors.firstName) { %>
+              <div class="text-error"> 
+                <%= errors.firstName.msg %>
+              </div>
+            <% } %>
           </div>
           <div class="col-md-4">
             <label for="lastName" class="form-label">Last name</label>
-            <input type="text" name="lastName" class="form-control" id="lastName" value="Otto" required>
+            <input type="text" name="lastName" class="form-control <%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
+             id="lastName" value="Otto" required>
+            <% if (locals.errors && errors.lastName) { %>
+              <div class="text-error"> 
+                <%= errors.lastName.msg %>
+              </div>
+            <% } %>
           </div>
           <div class="col-md-4">
             <label for="email" class="form-label">Email</label>
             <div class="input-group">
-              <span class="input-group-text" id="inputGroupPrepend2">@</span>
-              <input type="email" name="email" class="form-control" id="email"  aria-describedby="inputGroupPrepend2" required>
+              <span class="input-group-text" id="inputGroupPrepend2">@</span>           
+              <input type="email" name="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" id="email"  aria-describedby="inputGroupPrepend2" required>
+              <% if (locals.errors && errors.email) { %>
+                <div class="text-error"> 
+                  <%= errors.email.msg %>
+                </div>
+              <% } %>
             </div>
           </div>
           <div class="col-md-4">
             <label for="password" class="form-label"> Password</label>
-            <input type="password"  name="password" class="form-control" id="password" value="" required>
+            <input type="password"  name="password" class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>"
+             id="password" value="" required>
+            <% if (locals.errors && errors.password) { %>
+              <div class="text-error"> 
+                <%= errors.password.msg %>
+              </div>
+            <% } %>
             <div id="emailHelp" class="form-text">Your Password must have: 8-20 characters and at least 1 number.</div>
           </div>
           <div class="col-md-4">
             <label for="cPassword" class="form-label"> Confirm Your Password </label>
-            <input type="password" name="cPassword" class="form-control" id="cPassword" value="" required>
+            <input type="password" name="cPassword" class="form-control <%= locals.errors && errors.cPassword ? 'is-invalid' : null %>"
+             id="cPassword" value="" required>
+            <% if (locals.errors && errors.cPassword) { %>
+              <div class="text-error"> 
+                <%= errors.cPassword.msg %>
+              </div>
+            <% } %>
           </div>         
           <div class="col-md-6">
             <label for="birthdate" class="form-label"> Date Birth</label>
-            <input type="date" name="birthdate" class="form-control" id="birthdate" required>
+            <input type="date" name="birthdate" class="form-control <%= locals.errors && errors.birthdate ? 'is-invalid' : null %>"
+             id="birthdate" required>
+            <% if (locals.errors && errors.birthdate) { %>
+              <div class="text-error"> 
+                <%= errors.birthdate.msg %>
+              </div>
+            <% } %>
           </div>
     
           <div class="col-md-3">
             <label for="city" class="form-label">City</label>
-            <input type="text"  name="city" class="form-control" id="city" required>
+            <input type="text"  name="city" class="form-control <%= locals.errors && errors.city ? 'is-invalid' : null %>"
+             id="city" required>
+            <% if (locals.errors && errors.city) { %>
+              <div class="text-error"> 
+                <%= errors.city.msg %>
+              </div>
+            <% } %>
           </div>
           <div class="col-md-3">
             <label for="phone" class="form-label">Phone Number</label>
-            <input type="number" name="phone" class="form-control" id="phone" required>
+            <input type="number" name="phone" class="form-control <%= locals.errors && errors.phone ? 'is-invalid' : null %>"
+             id="phone" required>
+            <% if (locals.errors && errors.phone) { %>
+              <div class="text-error"> 
+                <%= errors.phone.msg %>
+              </div>
+            <% } %>
           </div>
           
           <div class="col-md-3">
             <label for="avatar" class="form-label">Profile Picture</label>
             <input type="file" name="avatar" class="form-control" id="avatar" required>
+            <% if (locals.errors && errors.avatar) { %>
+              <div class="text-error"> 
+                <%= errors.avatar.msg %>
+              </div>
+            <% } %>
           </div>
           
           <br>

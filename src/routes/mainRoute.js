@@ -5,7 +5,7 @@ const router = express.Router();
 const multer = require('../middlewares/multerDoctors')
 
 router.get('/', mainController.home)
-router.get('/appointment', mainController.appointment)
+router.get('/appointment/:id', mainController.appointment)
 router.get('/doctor', mainController.doctor)
 router.get('/add', mainController.add)
 

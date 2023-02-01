@@ -1,14 +1,27 @@
 <header id="header">
     <img src="../../public/img/clinica2.png" id="picture"> 
     <navbar id="navbar">
-        <a href="/" class="headText" > Home </a>
-        <a href="/appointment" class="headText"> Appointments </a>
+        <a href="/" class="headText" > Home </a>       
         <a href="/doctor" class="headText" > Doctors</a>
+       
+        
+        <!-- If admin is logged, show -->
+        <% if (locals.isAdminLogged) { %>
         <a href="/add" class="headText"> Add doctor</a>
+        <a href="/users/logout" class="headText"> Logout </a>
+        <% } %>
+      
+         <!-- If user is logged, show -->
+         <% if (locals.isLogged) { %>
+        <a href="/appointment" class="headText"> Appointments </a>        
+        <a href="/users/profile" class="headText"> Profile </a>
+        <a href="/users/logout" class="headText"> Logout </a>
+        <% } else if (!locals.isAdminLogged) { %>
+       
+        <!-- If user and admin are not logged, show --> 
         <a href="/users/login" class="headText"> Login </a>
         <a href="/users/register" class="headText"> Register </a>
-     
-        <a href="/users/profile" class="headText"> Profile </a>
         
+        <% } %>
     </navbar>
 </header>

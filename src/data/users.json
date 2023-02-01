@@ -1,16 +1,5 @@
 [
  {
-  "id": 0,
-  "firstName": "Mark Trend",
-  "lastName": "Mark Trend",
-  "email": "GEge@gmail.com",
-  "phone": 11111111,
-  "password": "Dermathologist ",
-  "cPassword": "Dermathologist ",
-  "birthdate": "10/10/1999",
-  "city": "New Gerd"
- },
- {
   "id": 1,
   "firstName": "Mark",
   "lastName": "Otto",
@@ -100,18 +89,6 @@
   "cPassword": "qwdwdq",
   "phone": "01136917222",
   "birthdate": "2005-07-08",
-  "city": "Villa Ortuzar",
-  "email": "julianmod@hotmail.com",
-  "image": "thumbnail_IMG_5477.jpg"
- },
- {
-  "id": 9,
-  "firstName": "Julian Pablo",
-  "lastName": "Barzana",
-  "password": "dwadaw",
-  "cPassword": "dawwd",
-  "phone": "01136917222",
-  "birthdate": "2023-01-14",
   "city": "Villa Ortuzar",
   "email": "julianmod@hotmail.com",
   "image": "thumbnail_IMG_5477.jpg"
@@ -221,5 +198,84 @@
   "birthdate": "0012-12-12",
   "city": "Villa Ortuzar",
   "email": "123@gmail.com"
+ },
+ {
+  "id": 19,
+  "firstName": "Mark",
+  "lastName": "Chancho",
+  "password": "$2a$10$NDw.NXYwZcEPCe2XPleOTuPQh17orQ/WJaYmaQPPwHnTXwhD/Tjwa",
+  "cPassword": "asdasdasd",
+  "phone": "01136917222",
+  "birthdate": "2023-01-11",
+  "city": "Villa Ortuzar",
+  "email": "chanchova@gmail.com"
+ },
+ {
+  "id": 20,
+  "firstName": "Julian",
+  "lastName": "Barzana",
+  "password": "$2a$10$zLO/DljvKbX0dtCt1WzGIuBHqx2DxAbKfomy.86kUCdRTeC3/oDQq",
+  "cPassword": "123123123",
+  "phone": "1136917221",
+  "birthdate": "2023-01-28",
+  "city": "Buenos Aires",
+  "email": "mark@gmail.com"
+ },
+ {
+  "id": 21,
+  "firstName": "siusius",
+  "lastName": "siusius",
+  "email": "siu@gmail.com",
+  "password": "siusiu",
+  "cPassword": "siusius",
+  "birthdate": "2023-01-10",
+  "city": "Buenos Aires",
+  "phone": "01136917222"
+ },
+ {
+  "id": 22,
+  "firstName": "admin",
+  "lastName": "admin",
+  "email": "admin@gmail.com",
+  "password": "$2a$10$s2q/Yyr1teOsk71U8L3aMOJLacWL8ARlSfrUyn7ApJ30y1m4U3MxW",
+  "cPassword": "admin123",
+  "birthdate": "2023-01-19",
+  "city": "admin",
+  "phone": "1111"
+ },
+ {
+  "id": 23,
+  "firstName": "Mark",
+  "lastName": "Otto",
+  "email": "markman@gmail.com",
+  "password": "$2a$10$IwbgrBRY0trHDn4vJqTBzu23LDyl2yDgfrO0Y3E55rg18Eood0NQC",
+  "cPassword": "Znpodkwa1",
+  "birthdate": "2023-01-13",
+  "city": "New Gerd",
+  "phone": "01122334455"
+ },
+ {
+  "id": 24,
+  "firstName": "Super",
+  "lastName": "Mario",
+  "email": "mariochan@gmail.com",
+  "password": "$2a$10$aaMxzk3QL.ZM1F2Cg1muruywNLyhJLI1pyHZpSmlJuDP364oBoF4y",
+  "cPassword": "mario",
+  "birthdate": "2022-12-30",
+  "city": "Buenos Aires",
+  "phone": "2233445566",
+  "image": "1674585157095_img.jpg"
+ },
+ {
+  "id": 25,
+  "firstName": "Master",
+  "lastName": "Plan",
+  "email": "Plan@gmail.com",
+  "password": "$2a$10$Q9vTJEr6tZxCVVHDK8BzTuaEfgnSALtwrI4O/A1QVR.pNFxcVU.O.",
+  "cPassword": "Znpodkwa123",
+  "birthdate": "2023-01-11",
+  "city": "Buenos Aires",
+  "phone": "23232323",
+  "image": "1674585607490_img.JPG"
  }
 ]

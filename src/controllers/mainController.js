@@ -3,8 +3,8 @@ const path = require('path');
 
 const doctorsFilePath = path.join(__dirname, '../data/doctors.json');
 const turnsFilePath = path.join(__dirname, '../data/turns.json')
-const list = JSON.parse(fs.readFileSync(doctorsFilePath, 'utf-8'));
-const turns = JSON.parse(fs.readFileSync(turnsFilePath, 'utf-8'));
+let doctors = JSON.parse(fs.readFileSync(doctorsFilePath, 'utf-8'));
+let turns = JSON.parse(fs.readFileSync(turnsFilePath, 'utf-8'));
 
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -13,14 +13,25 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const mainController = 
 // controllers to render pages
 { 
-    	home: (req, res) => {	
-             res.render('home');
+    	home: (req, res) => {
+            doctors = JSON.parse(fs.readFileSync(doctorsFilePath, 'utf-8'));
+		    res.render('home',{d: doctors});	
         },
         appointment:( req, res) => {
-            res.render('appointment')
+            let idDoctor = req.params.id
+            let appDoctor 
+            for (let docs of doctors) {
+                if (docs.id == idDoctor){
+                    appDoctor = docs
+                    break
+                 }
+            }      
+
+            res.render('appointment', { d : appDoctor } )
         },
         doctor:(req,res) => {
-            res.render('doctor')
+            doctors = JSON.parse(fs.readFileSync(doctorsFilePath, 'utf-8'));
+            res.render('doctor', {d: doctors})
         },
         professional: (req,res) => {
             res.render('professional')
@@ -30,7 +41,7 @@ const mainController =
         },
 //controllers to store a doc
         createDoctor: (req, res) => {
-        let newID=(list[list.length-1].id)+1 
+        let newID=(doctors[doctors.length-1].id)+1 
 		
         let availableDays = [req.body.monday,req.body.tuesday,req.body.wednesday,req.body.thursday,req.body.friday]
                     .filter(element => { return element !== undefined})
@@ -45,14 +56,14 @@ const mainController =
 			email: req.body.email,
             phone: req.body.phone,
             days: availableDays,
-            image: req.body.avatar
+            image: req.file.filename
 		}
 
         console.log("/////////")
 		
-		list.push(newDoctor)
+		doctors.push(newDoctor)
       
-		fs.writeFileSync(doctorsFilePath, JSON.stringify(list,null,' '));
+		fs.writeFileSync(doctorsFilePath, JSON.stringify(doctors,null,' '));
 
 		res.redirect('/');
         },
@@ -63,9 +74,11 @@ const mainController =
                 id: newID,
                 appointment: req.body.datepicker,
                 hour: req.body.hour,
+                doctor: "Jerry",// cambiar cuando use la base de datos  
+                patient: req.session.userLogged.firstName + ' ' + req.session.userLogged.lastName // and the user on session 
             }
             
-            console.log(newTurn)
+            console.log(appDoctor)
             
             turns.push(newTurn)
           

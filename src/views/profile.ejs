@@ -10,38 +10,38 @@
 
     <section id="profileSec">
         <div id="profileDP">
-          <img src="/public/img/IMG-2000.jpg" id="profilePic" >  
+          <img src="/public/img/users/<%=user.image%>" id="profilePic" >  
         </div>
     
         <div id="profileData">
           <table style="height: 100%">
             <tr>
-              <td> Name </td>
-              <td> Julian Barzana</td>
+              <td> Name: </td>
+              <td> <%- user.firstName + ' ' + user.lastName %></td>
             </tr>
             <tr>
-              <td> Date birth: </td>
-              <td> 99/99/9999 </td>
+              <td> Birthdate: </td>
+              <td> <%- user.birthdate %></td>
             </tr>
             <tr>
               <td> Cellphone number:</td>
-              <td> 00 0000 0000 </td>
+              <td> <%- user.phone %></td>
             </tr>
             <tr>
               <td> Sex:</td>
-              <td> Male </td>
+              <td> <%- user.birthdate %></td>
             </tr>
             <tr>
-              <td> Health Insurance </td>
+              <td> Health Insurance: </td>
               <td> Basic </td>
             </tr>
             <tr>
               <td> City: </td>
-              <td> New Gerd </td>
+              <td> <%- user.city %></td>
             </tr>
             <tr>
               <td> Mail: </td>
-              <td> Julian@gmail.gnid </td>
+              <td> <%- user.email %></td>
             </tr>
           </table>
         </div>

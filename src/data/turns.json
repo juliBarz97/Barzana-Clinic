@@ -31,5 +31,26 @@
   "id": 8,
   "appointment": "January 26, 2023",
   "hour": "20:00"
+ },
+ {
+  "id": 9,
+  "appointment": "January 30, 2023",
+  "hour": "16:00",
+  "doctor": "Jerry",
+  "patient": "Mark Chancho"
+ },
+ {
+  "id": 10,
+  "appointment": "February 3, 2023",
+  "hour": "17:00",
+  "doctor": "Jerry",
+  "patient": "Mark Chancho"
+ },
+ {
+  "id": 11,
+  "appointment": "January 30, 2023",
+  "hour": "17:00",
+  "doctor": "Jerry undefined",
+  "patient": "Mark Chancho"
  }
 ]

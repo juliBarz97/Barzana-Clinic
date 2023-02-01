@@ -78,43 +78,23 @@
 
  <div>       
              <h2 class="personalText"> Meet our Doctors. </h2> 
-            <div class="container mt-3" id="doctors">
-                
-                <div class="card" style="width:400px ; margin-bottom: 3em;">
-                  <img class="card-img-top" src="../../public/img/IMG-2000.jpg" alt="Card image" style="width:100%">
-                  <div class="card-body">
-                    <h4 class="card-title">John Doe</h4>
-                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                    <a href="#" class="btn btn-primary" style="background-color: #003e51;">See Profile</a>
-                  </div>
-                </div>
             
-                <div class="card" style="width:400px ; margin-bottom: 3em;">
-                    <img class="card-img-top" src="../../public/img/IMG-2000.jpg" alt="Card image" style="width:100%">
-                    <div class="card-body">
-                      <h4 class="card-title">John Doe</h4>
-                      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                      <a href="#" class="btn btn-primary" style="background-color: #003e51;">See Profile</a>
-                    </div>
-                </div>
-               
-                <div class="card" style="width:400px ; margin-bottom: 3em;">
-                    <img class="card-img-top" src="../../public/img/IMG-2000.jpg" alt="Card image" style="width:100%">
-                    <div class="card-body">
-                      <h4 class="card-title">John Doe</h4>
-                      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                      <a href="#" class="btn btn-primary" style="background-color: #003e51;">See Profile</a>
-                    </div>
-                </div>
-                <div class="card" style="width:400px ; margin-bottom: 3em;">
-                  <img class="card-img-top" src="../../public/img/IMG-2000.jpg" alt="Card image" style="width:100%">
+            
+            
+            <div class="container mt-3" id="doctors">
+              <% for (let i=0 ; i<5 ; i++) { %>
+                <div class="card" style="width:250px ; margin-bottom: 3em;">
+                  <img class="card-img-top" src="../../public/img/doctors/<%= d[i].image %>" alt="Card image" style="width:auto">
                   <div class="card-body">
-                    <h4 class="card-title">John Doe</h4>
+                    <h4 class="card-title"><%= d[i].name %></h4>
                     <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-                    <a href="#" class="btn btn-primary" style="background-color: #003e51;">See Profile</a>
+                    <a href="/appointment/<%= d[i].id %>" class="btn btn-primary" style="background-color: #003e51;">See Profile</a>
                   </div>
-              </div>
+                </div>
+               <% } %> 
+
             </div>
+     
 </div>
       
       <!-- information about the values of the clinic -->

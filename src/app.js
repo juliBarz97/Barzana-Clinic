@@ -10,11 +10,20 @@ const userRoute = require('./routes/userRoute');
 const session = require('express-session');
 const cookies = require('cookie-parser');
 
+// coockie is saved on the client side
+// session is saved on the server side
+
+const userLoggedMW = require('./middlewares/userLogged')
+
+
+
 app.use(session({
-    secret: 'Nombre del sitio',
+    secret: 'BarzanaClinic',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false
 }));
+
+app.use(userLoggedMW)
 
 app.use(cookies())
 
