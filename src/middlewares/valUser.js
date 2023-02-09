@@ -1,7 +1,7 @@
 const path = require('path');
 
 
-const { check } = require('express-validator');
+const { check , body } = require('express-validator');
 
 const validations = [
     check('firstName').notEmpty().withMessage('Write your first name'),
@@ -21,12 +21,17 @@ const validations = [
         } else { 
              let fileExtensions = path.extname(file.originalname);
             if (acceptedExtensions.includes(fileExtensions)===false){
-                throw new Error('Los archivos permitidos son ' + acceptedExtensions.join(', '))
+                throw new Error('The accepted files are ' + acceptedExtensions.join(', '))
             }
         };    
         return true; 
     }), 
-    check('password').notEmpty().withMessage('Write a password'),   
+    body('password')
+        .notEmpty().withMessage('Write a password.').bail()
+        .isLength({ min : 8 }).withMessage('The password must have 8 characters minimum.'),
+    body('cPassword')
+        .notEmpty().withMessage('Write a password.').bail()
+        .isLength({ min : 8 }).withMessage('The password must have 8 characters minimum.'),   
 ]
 
 module.exports = validations;

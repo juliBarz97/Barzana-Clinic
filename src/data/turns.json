@@ -52,5 +52,12 @@
   "hour": "17:00",
   "doctor": "Jerry undefined",
   "patient": "Mark Chancho"
+ },
+ {
+  "id": 12,
+  "appointment": "February 7, 2023",
+  "hour": "19:00",
+  "doctor": "Jerry",
+  "patient": "Mark Chancho"
  }
 ]

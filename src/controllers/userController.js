@@ -9,6 +9,9 @@ const {validationResult} = require('express-validator')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const modelUsers = require('../database/Users')
+const db = require('../database/models')
+const userDB = require('../database/models/users')
+const turnsDB = require('../database/models/turns') 
 
 const userController = 
 //controllers to render pages
@@ -44,7 +47,7 @@ const userController =
                 if (!isOkPassword){
                     return res.render('login', {
                         errors: {
-                            email: {
+                            password: {
                                 msg : ' Your password is wrong. Please, write it correctly'
                             }
                         }
@@ -114,7 +117,7 @@ const userController =
             console.log(resultValidation)
             if (resultValidation.errors.length > 0 ){
                 console.log(resultValidation.errors)
-                return res.render('users/register', {
+                return res.render('register', {
                     errors: resultValidation.mapped(),
                     oldData : req.body })
             } else { 

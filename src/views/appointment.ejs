@@ -86,42 +86,12 @@
   <% } %> 
   <button type="reset" class="btn btn-danger" style="background-color: #690000;"> Clean </button>
   </div>  
+
+
 </form>
-
-
-
 </main>
-
+  <script src="/public/js/appointment.js" type="text/javascript"></script>
   <%- include ('./partials/footer') %>
-<script>
-  
 
-
-const daysAvailable = document.querySelector('#daysAvailable').innerText
-let days = daysAvailable.split(', ')
-let numbers = [] 
-
-for (let i = 0 ; i < days.length; i ++ ){ 
-                  if (days[i] == "Monday"){ numbers.push(1) } 
-                  if (days[i] == "Tuesday"){ numbers.push(2) }
-                  if (days[i] == "Wednesday"){ numbers.push(3) } 
-                  if (days[i] == "Thursday"){ numbers.push(4) } 
-                  if (days[i] == "Friday"){ numbers.push(5) } 
-      } 
-
-
-
-  flatpickr('#datepicker', 
-  {      
-      dateFormat: "F j, Y",
-      minDate: "today",
-      enable: [
-        function(date) {
-          return numbers.some((element) => date.getDay() == element);
-        }
-      ]
-  })
-
-</script>
 </body>
 </html>

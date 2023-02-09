@@ -51,7 +51,7 @@
                 <%= errors.password.msg %>
               </div>
             <% } %>
-            <div id="emailHelp" class="form-text">Your Password must have: 8-20 characters and at least 1 number.</div>
+            <div id="emailHelp" class="form-text">Your Password must have: 8-20 characters and at least 3 number.</div>
           </div>
           <div class="col-md-4">
             <label for="cPassword" class="form-label"> Confirm Your Password </label>
@@ -62,11 +62,13 @@
                 <%= errors.cPassword.msg %>
               </div>
             <% } %>
-          </div>         
+             <input type="checkbox" onclick="myFunction()">Show Password
+          </div> 
+                
           <div class="col-md-6">
             <label for="birthdate" class="form-label"> Date Birth</label>
-            <input type="date" name="birthdate" class="form-control <%= locals.errors && errors.birthdate ? 'is-invalid' : null %>"
-             id="birthdate" required>
+            <input type="date" name="birthdate" max="01-01-2003" class="form-control <%= locals.errors && errors.birthdate ? 'is-invalid' : null %>"
+             id="birthdate"  required>
             <% if (locals.errors && errors.birthdate) { %>
               <div class="text-error"> 
                 <%= errors.birthdate.msg %>
@@ -110,8 +112,9 @@
             <button class="btn btn-primary" type="submit" style="background-color: #003e51;">Submit form</button>
           </div>
         </form>
-
+<script src="/public/js/register.js"></script>
 </main>
+
 <%- include ('./partials/footer') %>
 </body>
 

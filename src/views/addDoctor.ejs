@@ -29,7 +29,7 @@
         <input type="text" name="city" class="form-control" id="city" required>
       </div> 
       
-      <div class="col-md-3">
+      <div class="col-md-3" id="daysAvailable">
       <label for="validationDefault06" class="form-label"> Days Available: </label>
         <br>
         <div class="form-check form-check-inline">
@@ -52,6 +52,11 @@
             <input class="form-check-input" type="checkbox" name="friday" id="friday" value="5">
             <label class="form-check-label" for="friday"> Friday </label>
           </div>
+          
+            <div class="text-error"> 
+            
+            </div>
+     
         
       </div>
       <div class="col-md-3">
@@ -65,12 +70,12 @@
       <div class="col-md-3">
       <br>
       <div class="col-12">
-        <button class="btn btn-primary" type="submit" style="background-color: #003e51;">Submit form</button>
+        <button class="btn btn-primary" type="submit"  style="background-color: #003e51;">Submit form</button>
       </div>
     </form>
 
 </main>
-
+<script src="/public/js/addDoc.js" ></script>
   <%- include ('./partials/footer') %>
 
 </body>

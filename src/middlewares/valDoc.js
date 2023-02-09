@@ -21,12 +21,11 @@ const validations = [
         } else { 
              let fileExtensions = path.extname(file.originalname);
             if (acceptedExtensions.includes(fileExtensions)===false){
-                throw new Error('Los archivos permitidos son ' + acceptedExtensions.join(', '))
+                throw new Error('Only these files can be uploaded ' + acceptedExtensions.join(', '))
             }
         };    
         return true; 
-    }), 
-    body('password').notEmpty().withMessage('Write a password'),   
+    })
 ]
 
 module.exports = validations;

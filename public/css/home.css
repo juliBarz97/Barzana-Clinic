@@ -278,6 +278,11 @@ table {
     margin: 0 5% 0 5%
 }
 
+.class-text{
+    color : red;
+}
+
+
 .hovers:hover{
     background-color:red;
     transition: 1000ms;

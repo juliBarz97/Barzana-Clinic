@@ -6,6 +6,8 @@ const turnsFilePath = path.join(__dirname, '../data/turns.json')
 let doctors = JSON.parse(fs.readFileSync(doctorsFilePath, 'utf-8'));
 let turns = JSON.parse(fs.readFileSync(turnsFilePath, 'utf-8'));
 
+const db = require('../database/models')
+const doctorsDB = require('../database/models/doctors')
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -42,11 +44,21 @@ const mainController =
 //controllers to store a doc
         createDoctor: (req, res) => {
         let newID=(doctors[doctors.length-1].id)+1 
-		
+		console.log(req.body.monday,req.body.tuesday,req.body.wednesday,req.body.thursday,req.body.friday)
         let availableDays = [req.body.monday,req.body.tuesday,req.body.wednesday,req.body.thursday,req.body.friday]
                     .filter(element => { return element !== undefined})
 
         console.log(availableDays)
+        if (availableDays == undefined){
+            return res.render('appointment', {
+                errors :{
+                    days : {
+                        msg :'You must select at least 1 day.'
+                    }
+                },
+                oldData : req.body })
+        }
+       
 		let newDoctor = {
 			id: newID,
 			name: req.body.name,
@@ -78,7 +90,7 @@ const mainController =
                 patient: req.session.userLogged.firstName + ' ' + req.session.userLogged.lastName // and the user on session 
             }
             
-            console.log(appDoctor)
+            //console.log(appDoctor)
             
             turns.push(newTurn)
           
