@@ -8,10 +8,9 @@ const {validationResult} = require('express-validator')
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const modelUsers = require('../database/Users')
+
 const db = require('../database/models')
-const userDB = require('../database/models/users')
-const turnsDB = require('../database/models/turns') 
+
 
 const userController = 
 //controllers to render pages
@@ -25,90 +24,68 @@ const userController =
             res.render('login')
         },
         validLogin : (req, res) => {
-
-        let userToLogin = modelUsers.findByField('email' , req.body.email)
-        //si lo tengo
-        if (userToLogin){
-            // check password is correct
-                let isOkPassword = bcrypt.compareSync(req.body.password, userToLogin.password)
-                if (isOkPassword){
-                    delete userToLogin.password;
-                    delete userToLogin.cPassword
-                    req.session.userLogged = userToLogin
-                    console.log(req.session.userLogged)
-                    console.log(req.session.userLogged.email)
-
-                  if( req.session.userLogged.email == 'admin@gmail.com'){
+       /*
+            
+                if( req.session.userLogged.email == 'admin@gmail.com'){
                     return res.redirect("/")
                   }
                     return res.redirect("/users/profile")
                 }
 
-                if (!isOkPassword){
-                    return res.render('login', {
-                        errors: {
-                            password: {
-                                msg : ' Your password is wrong. Please, write it correctly'
-                            }
+*/
+        const resultValidationLogin = validationResult(req);
+                
+        if (resultValidationLogin.errors.length > 0 ){
+            res.render('users/login', {
+                errors: resultValidationLogin.mapped(),
+                oldData : req.body })
+                }
+
+        db.user.findOne({where: { email: req.body.email }}).then( (userToLogin) => {
+			console.log("//////////", userToLogin.dataValues, userToLogin.password)
+            if (!userToLogin) {
+				return res.redirect('login', {
+                    errors: {
+                        email: {
+                            msg : ' There is no such email in our database.'
                         }
-                    })
-                }
-            
-        }
+                    }
+                })
+			}
+			
+			if (userToLogin) {
+				const isPasswordOk = bcrypt.compareSync(req.body.password, userToLogin.password);
+				console.log(isPasswordOk)
+				if (!isPasswordOk) {
+					
+				return res.redirect( 'login' );
+				} else {			 
+				   delete userToLogin.password; 
+				   req.session.userLogged = userToLogin;
+                    console.log("te logueste")
+				   return res.redirect('/')
+			   }
+			}
+		});
 
-        // si no lo tengo, envia error
-
-        return res.render('login', {
-            errors: {
-                email: {
-                    msg : ' There is no such email in our database.'
-                }
-            }
-        })
-
-        /*    El que tenia
-		 let userToLogin = userList.filter( function(e){
-            return e.email == req.body.email;
-        })
-        console.log(userToLogin)
-       
-        //console.log(userToLogin[0].password);
-        //console.log(req.body.password);
-        if (!userToLogin) {
-            return	res.render( 'users/login' );
-        }
         
-        if (userToLogin) {
-            const isPasswordOk = bcrypt.compareSync(req.body.password, userToLogin[0].password);
-            
-            if (!isPasswordOk) {
-                return res.render( 'users/login' );
-            } else {			 
-               delete userToLogin[0].password; //no borra, habria que reveerlo 
-               req.session.userLogged = userToLogin[0];
-               console.log("//")
-               console.log(req.session.userLogged)
-               console.log("//")
-               if(req.body.recordarUsuario) {
-                   res.cookie('userEmail', req.body.email , { maxAge : (1000*60)})
-               }
 
-               return res.redirect("/users/profile");
-           } 
-        }*/
         },
         profile: (req, res) => {
-           // console.log(req.cookie.userEmail)
-			/*let user = {
-				firstName: req.session.userLogged.firstName,
-				lastName: req.session.userLogged.lastName,
+            db.user.findOne({ where: { id: req.session.userLogged } }).then((username) => {
+			let user1 = {
+				firstName: req.session.userLogged.first_name,
+				lastName: req.session.userLogged.last_name,
 				phone: req.session.userLogged.phone,
 				birthdate: req.session.userLogged.birthdate,
                 city: req.session.userLogged.city,
-				email: req.session.userLogged.email
+				email: req.session.userLogged.email,
+                sex: req.session.userLogged.sex,
+                image: req.session.userLogged.image
 			};
-*/
-            return res.render('profile', {user : req.session.userLogged})
+            res.render('profile', {user : user1})
+        })
+            
         },
 //controllers to create and modify users        
         createUser: (req, res) => {
@@ -126,13 +103,13 @@ const userController =
             // se puede usar segun Javi
             // user.create(req.body)
 
-            let newID=(userList[userList.length-1].id)+1 
+            //let newID=(userList[userList.length-1].id)+1 
             console.log(req.file)
             console.log(req.body)
 
-            let userInDB = modelUsers.findByField('email', req.body.email)
+            // let userInDB = modelUsers.findByField('email', req.body.email)
             // if user already exists 
-            if (userInDB){
+          /*  if (userInDB){
                 return res.render('register', {
                     errors:{
                         email: {
@@ -140,33 +117,28 @@ const userController =
                         }
                     },
                     oldData : req.body })
-            }
+            }*/
             
 
-            let newUser = {
-                // tmb podira usar spread op?
-                
-                id: newID,
-             /*   firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                password: bcrypt.hashSync(req.body.password, 10),
-                cPassword: req.body.cPassword,
+            db.user.create({
+                //id: newID,
+                first_name: req.body.firstName,
+                last_name: req.body.lastName,
+                password: bcrypt.hashSync(req.body.password, 10),               
                 phone: req.body.phone, 
                 birthdate: req.body.birthdate,
                 city: req.body.city,
                 email: req.body.email,
-                image: req.body.avatar, */
-                ...req.body,
+                sex : req.body.sex,
                 image: req.file.filename,
-                password: bcrypt.hashSync(req.body.password, 10) // pisa al password de req.body
-
-            }
+            })
             
             
-            console.log(newUser)
-            userList.push(newUser)
+            
+            //console.log(newUser)
+            //userList.push(newUser)
            
-            fs.writeFileSync(usersFilePath, JSON.stringify(userList,null,' '));
+            //fs.writeFileSync(usersFilePath, JSON.stringify(userList,null,' '));
         
             res.redirect('/');
         },

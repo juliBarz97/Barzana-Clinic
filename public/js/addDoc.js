@@ -42,4 +42,12 @@ function addDoc_func() {
       formAddDoc.submit();
      }
   }
+
+  
+  flatpickr('#birthdate', 
+  {      
+      dateFormat: "d-m-Y",
+      maxDate: "today",
+      defaultDate: ["01-01-2000"]
+  })
 }

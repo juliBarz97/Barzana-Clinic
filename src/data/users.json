@@ -445,5 +445,18 @@
   "city": "Villa Ortuzar",
   "phone": "01136917222",
   "image": "1675721582786_img.png"
+ },
+ {
+  "id": 40,
+  "firstName": "chanchoasd",
+  "lastName": "chanchoasd",
+  "email": "chanchito@gmail.com",
+  "password": "$2a$10$28Uyvt8mmSRPtHB06pNrU.vkhM535J/TIMa7CG/rhCl6eCV0ptZau",
+  "cPassword": "Znpodkwa123",
+  "birthdate": "01-01-2000",
+  "sex": "Male",
+  "city": "Villa Ortuzar",
+  "phone": "01136917222",
+  "image": "1676308788803_img.jpg"
  }
 ]

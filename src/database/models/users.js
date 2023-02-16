@@ -1,41 +1,42 @@
 function users (sequelize, DataTypes){
-/*
+
     alias = 'user';   
 
     cols = {
-        id: { type: Datatypes.INTEGER, primaryKey: true, autoIncrement: true },
-        first_name: { type : Datatypes.STRING } ,
-        last_name: { type : Datatypes.STRING } ,
-        city: { type : Datatypes.STRING } ,
+        id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+        first_name: { type : DataTypes.STRING } ,
+        last_name: { type : DataTypes.STRING } ,
+        city: { type : DataTypes.STRING } ,
         email: { 
-            type : DataTypes.VARCHAR(255) ,
+            type : DataTypes.STRING ,
             validate : {
                 isEmail : true
             }
         },
         phone: { type : DataTypes.INTEGER } ,
         birthdate: { type : DataTypes.DATE } ,
-        image: { type: DataTypes.VARCHAR(255) } ,
-        password: { type : DataTypes.VARCHAR(255) } ,
+        image: { type: DataTypes.STRING } ,
+        sex: { type : DataTypes.STRING },
+        password: { type : DataTypes.STRING } ,
     }
 
-    let config = {camelCase: false,timestamps: false , tableName: "user"};
+    let config = {camelCase: false,timestamps: false , tableName: "users"};
 
     const user = sequelize.define(alias, cols, config)
 
 
-    user.associate( function(models) {
-        user.belongsToMany (models.doctors, {
+    user.associate = function(models) {
+        user.belongsToMany(models.doctor, {
             as: "doctors",
             through : "turns",
-            foreignKey : "turn_id", //??,
-            otherKey : "doctor_id" 
+            foreignKey : "users_id", //??,
+            otherKey : "doctors_id" 
         })
-    })
+    }
 
 
-*/
-    return users
+
+    return user
 
 }
 

@@ -26,6 +26,12 @@ header{
     text-decoration: none !important;
 }
 
+.text-error{
+    color: red;
+    font-size: large;
+}
+
+
 #navbar{
     background: #003e51 ;
     color: white;

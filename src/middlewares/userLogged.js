@@ -1,4 +1,3 @@
-const userInDB = require('../database/Users')
 
 function userLogged(req, res, next) {
     // middleware aplication that is available for everyone
@@ -9,8 +8,8 @@ function userLogged(req, res, next) {
     // if adming logs in
     if (req.session && req.session.userLogged){
         let newUser = req.session.userLogged
-        if (newUser.email === 'admin@gmail.com'){
-            console.log("si")
+        if (newUser.email == 'admin@gmail.com'){
+            
             res.locals.isAdminLogged = true;
             res.locals.userLogged = req.session.userLogged
         } else if (req.session && req.session.userLogged){        

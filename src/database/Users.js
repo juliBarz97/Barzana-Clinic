@@ -1,4 +1,4 @@
-
+/*
 const fs = require('fs')
 
 // esto FUNCIONA COMO UNA REPLICA A UN MODELO
@@ -15,7 +15,7 @@ const User = {
         //json parse para que devuelva un array de objetos literales
     },
 
-    findAll: function (){ // funcion para devolver todo lo users.js
+   findAll: function (){ // funcion para devolver todo lo users.js
         return this.getData()
     },
     
@@ -58,4 +58,4 @@ const User = {
 
 console.log(User.findByPk(9)) // da todo el info del archivo
 
-module.exports = User
+module.exports = User*/

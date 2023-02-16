@@ -62,7 +62,9 @@
                 <%= errors.cPassword.msg %>
               </div>
             <% } %>
-             <input type="checkbox" onclick="myFunction()">Show Password
+            <div id="emailHelp" class="form-text">
+             <input type="checkbox" onclick="myFunction()"> Show Password
+            </div>
           </div> 
                 
           <div class="col-md-6">
@@ -75,7 +77,15 @@
               </div>
             <% } %>
           </div>
-    
+          <div class="col-md-3">
+            <label for="sex"> Sex </label>
+            <select id="sex" name="sex" class="form-control" style="position: relative; bottom: -8px;" required>
+              <option selected>Choose...</option>
+              <option> Male </option>
+              <option> Female </option>
+              <option> Other </option>
+            </select>
+          </div>
           <div class="col-md-3">
             <label for="city" class="form-label">City</label>
             <input type="text"  name="city" class="form-control <%= locals.errors && errors.city ? 'is-invalid' : null %>"
@@ -86,6 +96,7 @@
               </div>
             <% } %>
           </div>
+        
           <div class="col-md-3">
             <label for="phone" class="form-label">Phone Number</label>
             <input type="number" name="phone" class="form-control <%= locals.errors && errors.phone ? 'is-invalid' : null %>"
