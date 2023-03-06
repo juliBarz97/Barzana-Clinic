@@ -13,7 +13,10 @@
       
          <!-- If user is logged, show -->
          <% if (locals.isLogged) { %>
+      
+        <!--
         <a href="/appointment" class="headText"> Appointments </a>        
+    -->
         <a href="/users/profile" class="headText"> Profile </a>
         <a href="/users/logout" class="headText"> Logout </a>
         <% } else if (!locals.isAdminLogged) { %>

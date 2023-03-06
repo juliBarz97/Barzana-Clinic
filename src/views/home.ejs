@@ -25,22 +25,22 @@
       <div class="carousel-item active">
         <img src="../../public/img/hospital.jpg" alt="Los Angeles" class="d-block" style="width:100% ; height:500px">
         <div class="carousel-caption">
-            <h3> We are in 3 different cities.</h3>
-            <p> Find us in Glew City, Spectrum Town or Old York City!</p>
+            <h3 class="carousel-text"> We are in 3 different cities.</h3>
+            <p class="carousel-text"> Find us in Glew City, Spectrum Town or Old York City!</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="../../public/img/GettyImages.jpg" alt="Chicago" class="d-block" style="width:100% ; height:500px">
         <div class="carousel-caption">
-            <h3> With our Professionals, </h3>
-            <p> You'll be in good hands.</p>
+            <h3 class="carousel-text"> With our Professionals, </h3>
+            <p class="carousel-text"> You'll be in good hands.</p>
         </div>
     </div>
       <div class="carousel-item">
         <img src="../../public/img/instruments.jpg" alt="New York" class="d-block" style="width:100% ; height:500px">
         <div class="carousel-caption">
-            <h3> The latest equipment in technology, </h3>
-            <p> For every treament and operation.</p>
+            <h3 class="carousel-text"> The latest equipment in technology, </h3>
+            <p class="carousel-text"> For every treament and operation.</p>
         </div>
       </div>
   </div>
@@ -82,12 +82,12 @@
             
             
             <div class="container mt-3" id="doctors">
-              <% for (let i=0 ; i<6 ; i++) { %>
+              <% for (let i=3 ; i<9 ; i++) { %>
                 <div class="card" style="width:250px ; margin-bottom: 3em;">
                   <img class="card-img-top" src="../../public/img/doctors/<%= d[i].image %>" alt="Card image" style="width:auto">
                   <div class="card-body">
                     <h4 class="card-title"><%= d[i].name %></h4>
-                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                    <p class="card-text"> <%= d[i].name %> is a <%= d[i].expertise %> who lives in <%= d[i].city %> </p>
                     <a href="/appointment/<%= d[i].id %>" class="btn btn-primary" style="background-color: #003e51;">See Profile</a>
                   </div>
                 </div>

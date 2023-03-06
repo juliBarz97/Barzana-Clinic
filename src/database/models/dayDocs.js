@@ -4,8 +4,8 @@ function dayDocs (sequelize, DataTypes){
 
     cols = {
         id: { type : DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-        doctor_id: { type : DataTypes.INTEGER } ,
-        day_id: { type : DataTypes.INTEGER } ,
+        doctors_id: { type : DataTypes.INTEGER } ,
+        days_id: { type : DataTypes.INTEGER } ,
     }
 
     let config = {camelCase: false,timestamps: false , tableName: "dayDocs"};

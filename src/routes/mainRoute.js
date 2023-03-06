@@ -10,8 +10,8 @@ router.get('/doctor', mainController.doctor)
 router.get('/add', mainController.add)
 
 router.post('/createDoctor', multer.single('avatar'), mainController.createDoctor)
-router.post('/newTurn', mainController.newTurn)
-
+router.post('/newTurn/:id', mainController.newTurn)
+router.delete('/cancelTurn/:id', mainController.cancelTurn)
 
 
 module.exports = router

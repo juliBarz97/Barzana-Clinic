@@ -49,7 +49,14 @@
     </section>
 
 <h2 class="personalText"> Appointments </h2>
+ 
+<!-- show nothing -->
+<% if (user.turns.length == 0) { %>
+<h4 class="noTurns" style="text-align: center; color: #003e51 "> You do not have an appointment with any doctor yet!</h4>
+<% } else { %>
+<!-- show turns-->
 <div id="appointmentsData">
+
 <table>
   <tr>
     <th> Proffesional</th>
@@ -58,28 +65,35 @@
     <th> Hour</th>
     <th> Cancel </th>
   </tr>
+
+  <% for ( let i = 0 ; i< user.turns.length ; i++ ) { %>
   <tr>
-    <td> Julian Barzana </td>
-    <td> Dermatologist </td>
-    <td> 24/01/2023 </td>
-    <td> 15:00 </td>
-    <td> <button type="button" class="btn-close" aria-label="Close"></button></td>
+    <td> <%= user.turns[i].doctor %>  </td>    
+    <td id="areaExpertise"> 
+      <% let area %>
+      <% if (user.turns[i].area_expertise == 1) { area = "Dermathologist" } %> 
+      <% if (user.turns[i].area_expertise == 2) { area = "Neurologist" } %> 
+      <% if (user.turns[i].area_expertise == 3) { area = "Dentist" } %> 
+      <% if (user.turns[i].area_expertise == 4) { area = "Veterinary" } %> 
+      <% if (user.turns[i].area_expertise == 5) { area = "Nurse" } %> 
+      <% if (user.turns[i].area_expertise == 6) { area = "Therapist" } %> 
+      <% if (user.turns[i].area_expertise == 7) { area = "Psychologist" } %> 
+      <% if (user.turns[i].area_expertise == 8) { area = "Surgeon" } %> 
+      <% if (user.turns[i].area_expertise == 9) { area = "Veterinary Surgeon" } %> 
+      <%= area %>
+    </td>
+    <td> <%= user.turns[i].date %> </td>
+    <td> <%= user.turns[i].hour %></td>
+    <td> 
+      <form action="/cancelTurn/<%= user.turns[i].id %>?_method=DELETE" method="POST">
+      <button type="submit" class="btn-close" aria-label="Close"></button>
+      </form>
+    </td>
   </tr>
-  <tr>
-    <td> Julian Barzana </td>
-    <td> Dermatologist </td>
-    <td> 24/01/2023 </td>
-    <td>  15:00</td>
-    <td> <button type="button" class="btn-close" aria-label="Close"></button></td>
-  </tr>
-  <tr>
-    <td> Julian Barzana </td>
-    <td> Dermatologist </td>
-    <td> 04/01/2023</td>
-    <td> 15:00</td>
-    <td> <button type="button" class="btn-close" aria-label="Close"></button></td>
-  </tr>
+  <% } } %>
+
 </table>
+
 </div>
 </main>
 

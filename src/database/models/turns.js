@@ -4,10 +4,10 @@ function turns (sequelize, DataTypes){
 
     cols = {
         id: { type : DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-        date: { type : DataTypes.DATE } ,
-        time: { type : DataTypes.TIME } ,
-        doctor_id: { type : DataTypes.INTEGER } ,
-        user_id: { type : DataTypes.INTEGER } ,
+        date_turn: { type : DataTypes.DATE } ,
+        time_turn: { type : DataTypes.TIME } ,
+        doctors_id: { type : DataTypes.INTEGER } ,
+        users_id: { type : DataTypes.INTEGER } ,
     }
 
     let config = {camelCase: false,timestamps: false , tableName: "turns"};

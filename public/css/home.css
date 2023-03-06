@@ -127,6 +127,9 @@ header{
     text-shadow: 0 0 2px;
     color: white;
 }
+.carousel-text{
+    text-shadow: black 0 0 5px;
+}
 
 #clinicOptions{
     display: flex;
@@ -211,7 +214,7 @@ header{
 #profileSec{
     display: flex;
     justify-content: space-around; 
-    height: 300px;  
+    height: fit-content;  
 }
 
 #profileDP{
@@ -225,7 +228,7 @@ header{
     transition: ease-in-out 0.2s;
 }
 #profilePic{
-    height: -webkit-fill-available;
+    height: 300px;
     width: -webkit-fill-available;
     border-radius: 5px;
 }
@@ -338,7 +341,9 @@ footer{
         height: 100px;
         width: 100px;
     }
-    
+    #profileDP{
+        display: none;
+    }
     #navbar {
         display: none;
     }
