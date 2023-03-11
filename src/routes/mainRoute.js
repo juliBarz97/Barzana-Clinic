@@ -13,5 +13,14 @@ router.post('/createDoctor', multer.single('avatar'), mainController.createDocto
 router.post('/newTurn/:id', mainController.newTurn)
 router.delete('/cancelTurn/:id', mainController.cancelTurn)
 
+// APIs
+
+router.get('/areaAPI',mainController.areaAPI)
+router.get('/doctorsAPI', mainController.doctorsAPI)
+router.get('/lastDocAPI',mainController.lastDocAPI)
+router.get('/turnAPI', mainController.turnAPI)
+router.get('/UsersAPI', mainController.UsersAPI)
+router.get('/docAreaAPI', mainController.docAreaAPI)
+
 
 module.exports = router

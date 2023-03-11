@@ -3,7 +3,6 @@ const path = require("path");
 
 const db = require("../database/models");
 
-const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const mainController =
   // controllers to render pages
@@ -115,17 +114,17 @@ const mainController =
     //controllers to store a doc
     createDoctor: (req, res) => {
       let availableDays = [
-        req.body.monday,
-        req.body.tuesday,
-        req.body.wednesday,
-        req.body.thursday,
-        req.body.friday,
+        aDoc.monday,
+        aDoc.tuesday,
+        aDoc.wednesday,
+        aDoc.thursday,
+        aDoc.friday,
       ].filter((element) => {
         return element !== undefined;
       });
       console.log(availableDays);
 
-      console.log("Aca viajo lo del form: ", req.body, " ///");
+      console.log("Aca viajo lo del form: ", aDoc, " ///");
       if (availableDays == undefined) {
         return res.render("appointment", {
           errors: {
@@ -133,20 +132,20 @@ const mainController =
               msg: "You must select at least 1 day.",
             },
           },
-          oldData: req.body,
+          oldData: aDoc,
         });
       }
 
-      let docCreated = req.body;
+      let docCreated = aDoc;
 
       db.doctor
         .create({
-          name: req.body.name,
-          expertise_id: req.body.expertise_id,
-          birthdate: req.body.birthdate,
-          city: req.body.city,
-          email: req.body.email,
-          phone: req.body.phone,
+          name: aDoc.name,
+          expertise_id: aDoc.expertise_id,
+          birthdate: aDoc.birthdate,
+          city: aDoc.city,
+          email: aDoc.email,
+          phone: aDoc.phone,
           days: availableDays,
           image: req.file.filename,
         })
@@ -172,11 +171,11 @@ const mainController =
       let idDoctor = req.params.id;
       console.log(idDoctor);
       console.log(req.params, "did u got");
-      console.log(req.body, "hola aca estoy");
+      console.log(aDoc, "hola aca estoy");
       db.turn
         .create({
-          date_turn: req.body.datepicker,
-          time_turn: req.body.hour,
+          date_turn: aDoc.datepicker,
+          time_turn: aDoc.hour,
           doctors_id: req.params.id, // cambiar cuando use la base de datos
           users_id: req.session.userLogged.id, // and the user on session
         })
@@ -196,6 +195,174 @@ const mainController =
           res.redirect("../users/profile");
         });
     },
+    // APIs
+    turnAPI : (req, res) => {
+      db.turn.findAll().then((turnApi) =>{
+        return res.status(200).json({
+          register: turnApi.lenght,
+          data: turnApi,
+          code:200
+        })
+      })
+    },
+    areaAPI: (req, res) => {
+      db.expertise.findAll().then((areaApi) => {
+        return res.status(200).json({
+          register: areaApi.length,
+          data: areaApi,
+          code:200,
+        })
+      })
+    },
+    doctorsAPI : (req,res) => {
+      db.doctor
+      .findAll({ include: [{ association: "areas" }] })
+      .then((doctors) => {
+        let lists = [];
+
+        for (oneDoctor of doctors) {
+          let expertise = [];
+          for (expertisss of [
+            oneDoctor.areas.getDataValue("area_expertise"),
+          ]) {
+            expertise.push(expertisss);
+          }
+          let oneDoc = {
+            id: oneDoctor.id,
+            name: oneDoctor.name,
+            city: oneDoctor.city,
+            phone: oneDoctor.phone,
+            birthdate: oneDoctor.birthdate,
+            email: oneDoctor.email,
+            expertise: expertise,
+            image: oneDoctor.image,
+          };
+          lists.push(oneDoc);
+        }
+
+        res.status(200).json({
+          data: lists,
+          code: 200,
+          text: "All Doctors"
+        })
+      });
+  },
+    lastDocAPI : (req,res)=> {
+      db.doctor.findAll().then((doctors) => {
+        let list = [];
+        let aDoc = doctors.slice(-1)[0];
+        let lastDoc = {
+          name: aDoc.name,
+          expertise_id: aDoc.expertise_id,
+          birthdate: aDoc.birthdate,
+          city: aDoc.city,
+          email: aDoc.email,
+          phone: aDoc.phone,
+          image: aDoc.filename,
+        }
+        list.push(lastDoc)
+
+        res.status(200).json({
+          data: list,
+          code : 200,
+          text: "Last Doctor"
+        })
+      })
+    },
+    UsersAPI : (req,res) => {
+      db.user
+      .findAll()
+      .then((username) => {
+        let user1 = {
+          firstName: username.first_name,
+          lastName: username.last_name,
+          phone: username.phone,
+          birthdate: username.birthdate,
+          city: username.city,
+          email:username.email,
+          sex: username.sex,
+          image: username.image,
+          turns: [],
+        };
+
+        db.turn
+          .findAll(
+            { include: [{ association: "user" }, { association: "doctor" }] },
+            { where: { user_id: username.id } }
+          )
+          .then((results) => {
+            for (result of results) {
+              console.log(result.doctor);
+              let oneTurn = {
+                id: result.id,
+                doctor: result.doctor.name,
+                area_expertise: result.doctor.expertise_id,
+                date: result.date_turn,
+                hour: result.time_turn,
+              };
+              user1.turns.push(oneTurn);
+            }
+            res.status(200).json({
+              data: user1,
+              code : 200,
+              text: "All Users"
+            })
+          });
+      });
+    },
+    docAreaAPI: (req, res) => {
+      db.doctor.findAll().then((doctors) => {
+        function countDoctorsByExpertise(expertiseId) {
+          let count = 0;
+          for (let i = 0; i < doctors.length; i++) {
+            if (doctors[i].expertise_id == expertiseId) {
+              count = count + 1;
+            }
+          }
+          return count;
+        }
+        const expertiseMap = {
+          1: 'Dermatologist',
+          2: 'Neurologist',
+          3: 'Dentist',
+          4: 'Veterinary',
+          5: 'Nurse',
+          6: 'Therapist',
+          7: 'Psychologist',
+          8: 'Surgeon',
+          9: 'Veterinary Surgeon',
+        };
+        
+        const doctorByExpertise = [];
+        const areasDoc = {};
+        
+        for (let i = 1; i <= 9; i++) {
+          const count = countDoctorsByExpertise(i);
+          doctorByExpertise.push(count);
+          areasDoc[expertiseMap[i]] = count;
+        }
+        /*
+        for (oneDoctor of doctors) {
+          let aDoc = {
+            name: oneDoctor.name,
+            descripcion: oneDoctor.descripcion,
+            precio: oneDoctor.precio,
+            descuento: oneDoctor.descuento,
+            stock: oneDoctor.stock,
+            categoria: oneDoctor.expertise_id,
+          };
+          list.push(aDoc);
+        }
+  */
+        //console.log(lista)
+        res.status(200).json({
+          //register: list.length,
+          //data: list,
+          doctorsByField: areasDoc,
+          code: 200,
+        });
+      });
+    }
   };
 
 module.exports = mainController;
